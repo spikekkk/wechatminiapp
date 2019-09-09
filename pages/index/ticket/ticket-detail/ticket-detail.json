@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "Parser": "/Parser/index",
+        "Carousel": "/components/carousel-with-index/carousel-with-index",
+        "BeforeShare": "/components/share-dialog/share-dialog"
+    },
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+}

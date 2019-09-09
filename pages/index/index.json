@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "CollectPop": "/components/collect-pop/collect-pop",
+    "SpecialSwiper": "/components/swiper-special/swiper-special"
+  },
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "惠吧",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

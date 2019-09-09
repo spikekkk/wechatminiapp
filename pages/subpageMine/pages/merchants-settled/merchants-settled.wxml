@@ -1,0 +1,44 @@
+<!--pages/subpageMine/pages/merchants-settled/merchants-settled.wxml-->
+<view class="top-container">
+  <view class="top">
+    <view class="top-title">商家入驻</view>
+    <view class="iconfont iconleft" bindtap="navigateBack"></view>
+  </view>
+  <image class="merchants-bg" src="../../images/bg/merchants_bg.png"></image>
+</view>
+<form bindsubmit="confirm" class="form-container">
+  <view class="title">请填写入驻信息</view>
+  <view class="fields">
+    <view class="input-list">
+      <view class="name">姓名</view>
+      <input class="input" placeholder-class="placeholder-text" name='name' placeholder="请输入您的名字"></input>
+    </view>
+    <view class="input-list">
+      <view class="name">手机号码</view>
+      <input class="input" placeholder-class="placeholder-text" name='mobile' type="number" placeholder="请输入正确的手机号码"></input>
+    </view>
+  </view>
+  <view class="fields">
+    <view class="input-list">
+      <view class="name">商家名称</view>
+      <input class="input" placeholder-class="placeholder-text" name='businessName' placeholder="请输入商家名称"></input>
+    </view>
+    <view class="input-list">
+      <view class="name">商家数量</view>
+      <input class="input" placeholder-class="placeholder-text" name='businessNum' type="number" placeholder="请输入商家数量"></input>
+    </view>
+    <view class="input-list">
+      <view class="name">城市区域</view>
+      <picker mode='region' bindchange="bindRegionChange">
+        <input class="input" placeholder-class="placeholder-text" disabled="true" name='cityList' value="{{regionVal}}" placeholder="请输入所在城市区域"></input>
+      </picker>
+    </view>
+    <view class="input-list textarea">
+      <view class="name">详细地址</view>
+      <textarea name='address' placeholder-class="placeholder-text" placeholder=""></textarea>
+    </view>
+  </view>
+  <view class="submit-button">
+    <button form-type="submit" hover-class="btn-hover">提交信息</button>
+  </view>
+</form>

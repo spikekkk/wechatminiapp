@@ -1,0 +1,103 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/get-auth/get-auth",
+    "pages/index/index-more/index-more",
+    "pages/index/playcard/playcard",
+    "pages/index/ticket/ticket-detail/ticket-detail",
+    "pages/index/reservation/reservation",
+    "pages/index/calendar/calendar",
+    "pages/index/address/address",
+    "pages/index/ticket/ticket-detail/shop-detail/shop-detail",
+    "pages/index/ticket/ticket-detail/purchase/unpaid/unpaid",
+    "pages/index/ticket/ticket-detail/purchase/purchase",
+    "pages/index/ticket/ticket-detail/purchase/pay-success/pay-success",
+    "pages/index/member-agree/member-agree",
+    "pages/index/customerForm/customerForm",
+    "pages/order/order",
+    "pages/order/order-detail/order-detail",
+    "pages/mine/merchant-check/merchant-check",
+    "pages/mine/bind-mobile/bind-mobile",
+    "pages/mine/mine",
+    "components/contact-info/contact-info",
+    "components/share-poster/share-poster",
+    "pages/mine/contacts/contacts"
+  ],
+  "subpackages": [
+    {
+      "root": "pages/subpageMine",
+      "pages": [
+        "pages/activation/activation",
+        "pages/my-collections/my-collections",
+        "pages/platform-agreement/platform-agreement",
+        "pages/customer-service/customer-service",
+        "pages/common-problems/common-problems",
+        "pages/booking-guide/booking-guide",
+        "pages/my-playcard/my-playcard",
+        "pages/expense-card/expense-card",
+        "pages/my-tickets/my-tickets",
+        "pages/write-off/write-off",
+        "pages/merchants-settled/merchants-settled",
+        "pages/cs-webview/cs-webview"
+      ]
+    },
+    {
+      "root": "packageTrade",
+      "pages": [
+        "pages/my-rights/my-rights",
+        "pages/withdraw-record/withdraw-record",
+        "pages/my-team/my-team",
+        "pages/date-picker/date-picker",
+        "pages/income-record/income-record",
+        "pages/economical-record/economical-record",
+        "pages/withdraw/withdraw",
+        "pages/trade",
+        "pages/income/income",
+        "pages/economical/economical"
+      ]
+    }
+  ],
+  "tabBar": {
+    "custom": false,
+    "borderStyle": "black",
+    "selectedColor": "#FF9436",
+    "color": "#999",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/icon/icon-home.png",
+        "selectedIconPath": "/images/icon/icon-home-selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "/images/icon/icon-order.png",
+        "selectedIconPath": "/images/icon/icon-order-selected.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/images/icon/icon-mine.png",
+        "selectedIconPath": "/images/icon/icon-mine-selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {},
+  "navigateToMiniProgramAppIdList": [
+    "wx16bc03f780bb4940"
+  ]
+}

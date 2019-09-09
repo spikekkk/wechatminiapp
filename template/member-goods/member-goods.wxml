@@ -1,0 +1,38 @@
+<wxs module='goodsTemp'>
+  var testFuc = function(e) {
+    if (e.indexOf('「') === 0) {
+      return 'textIndent'
+    }
+    return 'noIndent';
+  }
+  module.exports = {
+    testFuc: testFuc
+  }
+</wxs>
+<template name="member-goods">
+  <navigator url="/pages/index/ticket/ticket-detail/ticket-detail?goodsId={{item.id}}" hover-class='list-hover' class='member-goods-item' wx:for='{{recommendData}}' wx:key='{{item.id}}'>
+    <view class="image-container">
+      <image src='{{item.cover}}?p=image/format,jpg/quality,q_75/resize,l_750' lazy-load="true" mode="widthFix"></image>
+      <view class="item-belog-card">
+        <text>{{item.vipSpuName}}专属</text>
+      </view>
+    </view>
+    <view class='item-content'>
+      <view class='item-title {{goodsTemp.testFuc(item.spuName||item.goodsName)}}'>{{item.spuName||item.goodsName}}</view>
+      <view class="type-container">
+        <text class="type-item goods-type">
+          <block class='' wx:if='{{item.goodsType ==="101"}}'>门票</block>
+          <block class='' wx:if='{{item.goodsType ==="102"}}'>消费卡</block>
+          <block class='' wx:if='{{item.goodsType ==="103"}}'>课程</block>
+        </text>
+      </view>
+      <view class='item-footer'>
+        <view class='item-shopAdd'>
+          <text>{{item.shopName}}</text>
+          <text>{{item.shopAdd}}</text>
+        </view>
+        <view class='item-btn'>{{btnTxt}}</view>
+      </view>
+    </view>
+  </navigator>
+</template>

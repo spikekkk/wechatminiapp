@@ -1,0 +1,4 @@
+<!--pages/mine/booking-guide/booking-guide.wxml-->
+<view>
+  <image mode="aspectFit" src="http://img.ishanshan.com/gimg/n/20190819/7c7a6739f79acae3a46250f31876cdcc?p=image/format,jpg/quality,q_50"></image>
+</view>

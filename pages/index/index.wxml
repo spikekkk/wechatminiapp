@@ -1,0 +1,66 @@
+<!-- pages/index/index.wxml -->
+<import src="../../template/enter-loading/enter-loading.wxml" />
+<import src="/template/member-goods/member-goods" />
+<import src="/template/card-bg/card-bg" />
+<import src="/template/loading/loading" />
+<import src="/template/horizontal-loading/horizontal-loading" />
+<CollectPop />
+<swiper indicator-dots='true' indicator-color='#eee' indicator-active-color='#FF9436' autoplay="{{true}}">
+  <block wx:for="{{superCardList}}" wx:key="cardId" wx:for-item="data">
+    <swiper-item id="{{data.cardId}}">
+      <navigator id="{{data.cardId}}" class='play-card-container' url='/pages/index/playcard/playcard?skuId={{data.skuId}}&spuId={{data.spuId}}'>
+        <view class='play-card-detail' style='background-image:url("{{data.cover}}?p=image/format,jpg/quality,q_75/resize,l_750")'>
+        </view>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="cities-container">
+  <view class='list-title {{cityNavFixed ? "cityNavFixed": ""}}' id="cityNav">
+    <text class='title-text'>热门城市</text>
+    <navigator url='/pages/index/index-more/index-more' class='more'>
+      <text class="more-text">更多城市</text>
+      <text class="iconfont iconright"></text>
+    </navigator>
+  </view>
+  <view class='cities-list {{cityNavFixed ? "paddingTop": ""}}'>
+    <scroll-view scroll-x>
+      <view wx:if='{{citiesArr.length>0}}' class="cities-item" data-city='{{item.aliasName}}' bindtap="choseCity" wx:for='{{citiesArr}}' wx:key='{{index}}'>
+        <view class="cities-item-bg" style="background-image:url('{{item.cover}}')"></view>
+        <text class="citie-item-name">{{item.aliasName}}</text>
+      </view>
+      <view class="loading" wx:if='{{citiesArr.length==0}}'>
+        <template is='horizontal-loading'></template>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class="list-container" wx:if='{{weekNewArr.length>0}}'>
+  <view class='list-title'>
+    <text class='title-text'>本月上新</text>
+    <view class="special-swiper-num">
+      <text style="color:#333">{{specialSwiperCurIndex}}</text>/{{weekNewArr.length}}
+    </view>
+  </view>
+</view>
+<SpecialSwiper title='本月上新' list='{{weekNewArr}}' bind:swiperCurIndexChange='swiperCurIndexChange' />
+<view class='list-container'>
+  <view class=''>
+    <view class='list-title'>
+      <text class='title-text'>{{goodsTab.length==1?goodsTab[0].spuName:'商品类型'}}</text>
+    </view>
+    <view wx:if='{{goodsTab.length > 1}}' class='goods-tab {{goodsNavFixed ? "goodsNavFixed": ""}}' id="goodsNav">
+      <view wx:for='{{goodsTab}}' wx:key='{{index}}' class="tab-item-tap" data-type="{{item.goodsType}}" data-index="{{index}}" bindtap="choseCardType">
+        <view class="tab-item {{index==activeTabIndex?'active':''}}">
+          <text class="tab-item-text">{{item.spuName}}</text>
+          <view class="bottom-border"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='recommendation-list {{goodsNavFixed ? "fixed": ""}}' style="padding-top:{{goodsNavFixed?goodsListPadTop:'0'}}rpx">
+    <template is="member-goods" data="{{recommendData: recommendData,btnTxt:btnTxt}}"></template>
+    <template is='loading-ui' data="{{showLoading:listLoading}}"></template>
+    <view class='listBottom'>已经到底啦...</view>
+  </view>
+</view>

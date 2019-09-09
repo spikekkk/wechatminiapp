@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="paystate">
+    <view class="top">
+      <view class="top-circle">
+        <icon type="success" size="60"></icon>
+      </view>
+      <text class="top-title">付款成功</text>
+    </view>
+    <view class="center">
+      <!-- 预约商品订单 -->
+      <view wx:if='{{optionsData.orderType == 2}}'>
+        <text class="center-title">{{orderData.goodsName}}押金</text>
+        <view class="category">
+          <text class="left">押金金额</text>
+          <text class="right">￥{{orderData.price}}</text>
+        </view>
+        <view class="category">
+          <text class="left">下单时间</text>
+          <text class="right">{{orderData.orderTime}}</text>
+        </view>
+        <view class="category" hidden="true"></view>
+      </view>
+      <!-- 普通商品订单和会员卡订单 -->
+      <view wx:if='{{optionsData.orderType == 1}}'>
+        <text class="center-title">{{orderData.goodsName}}</text>
+        <view class="category">
+          <text class="left">原价</text>
+          <text class="right">￥{{orderData.price}} x {{optionsData.goodsNum}}</text>
+        </view>
+        <view class="category" wx:if='{{orderData.deductShouldAmount > 0}}'>
+          <text class="left">(会员折扣)</text>
+          <text class="right">{{orderData.deductShouldAmount}}</text>
+        </view>
+        <view class="category">
+          <text class="left">实付款</text>
+          <text class="right">￥{{orderData.orderAmount}}</text>
+        </view>
+        <!-- 会员卡 -->
+        <view wx:if="{{isVip}}" class="category have-card">
+          <text class="left">持卡人</text>
+          <text class="right">{{orderData.cardName}}</text>
+        </view>
+        <view wx:if="{{isVip}}" class="right idcard">
+          <text>{{idCard}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view wx:if='{{optionsData.orderType == 1}}' class="bottom-btn {{animateOfBtn ? 'btnGreenAnim' : ''}}" catchtap="onNavToMyTickets">
+        {{optionsData.goodsType==='9'?'查看预约指南':'去使用'}}
+      </view>
+      <view wx:if='{{optionsData.orderType == 2}}' class="bottom-btn {{animateOfBtn ? 'btnGreenAnim' : ''}}" catchtap="onNavToOrder">
+        查看订单
+      </view>
+    </view>
+  </view>
+</view>

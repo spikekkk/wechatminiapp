@@ -1,0 +1,114 @@
+/* pages/subpageMine/pages/merchants-settled/merchants-settled.wxss */
+
+.top-container {
+  position: relative;
+}
+
+.top {
+  height: 270rpx;
+  background: linear-gradient(322deg, rgba(255, 148, 54, 1) 0%, rgba(255, 188, 58, 1) 100%);
+  border-bottom-right-radius: 410rpx 30rpx;
+  border-bottom-left-radius: 410rpx 30rpx;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 150rpx;
+}
+
+.iconfont {
+  position: absolute;
+  top: 58rpx;
+  left: 20rpx;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.iconfont::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+}
+
+.top-title {
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  margin-top: 58rpx;
+}
+
+.merchants-bg {
+  width: 670rpx;
+  height: 220rpx;
+  background-color: #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: -100rpx;
+  z-index: 11;
+}
+
+.form-container {
+}
+
+.fields {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+
+.form-container .title {
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+}
+
+.fields .input-list {
+  height: 92rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+}
+.placeholder-text {
+  font-size: 28rpx;
+  color: #ccc;
+}
+.fields .input-list.textarea {
+  height: auto;
+  display: block;
+  padding: 28rpx 0;
+}
+
+.fields .input-list textarea {
+  width: 100%;
+  height: 90rpx;
+  display: block;
+  margin-top: 28rpx;
+}
+
+.input-list .name {
+  color: #999;
+  width: 112rpx;
+  margin-right: 50rpx;
+  font-weight: 500;
+}
+
+.submit-button {
+  margin: 62rpx auto;
+  padding: 0 20rpx;
+}
+
+.submit-button button {
+  width: 670rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  background: linear-gradient(322deg, rgba(255, 148, 54, 1) 0%, rgba(255, 188, 58, 1) 100%);
+  border-radius: 47rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 62rpx;
+}

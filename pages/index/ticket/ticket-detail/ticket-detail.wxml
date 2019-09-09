@@ -1,0 +1,123 @@
+<import src="/components/stars/stars-template" />
+<import src="/components/enter-loading/enter-loading.wxml" />
+<view>
+  <NavBar bind:triggerback='handleBack' />
+</view>
+<view wx:if="{{isLoading}}">
+  <template is="enter-loading" />
+</view>
+<view wx:else class="container {{inviteDialogBool?'noSroll':''}}">
+  <view class="head">
+    <Carousel swiperList='{{ticketDetailData.imgs}}' type='{{ticketDetailData.goodsType}}' />
+    <view class="head-center">
+      <text class="center-title">{{ticketDetailData.spuName}}</text>
+      <view class="center-detail" wx:if='{{ticketDetailData.isEquity===0}}'>
+        <view>
+          <text class="current-price">
+            <text>￥</text> {{ticketDetailData.price}}
+          </text>
+          <view class="old-price">会员价￥{{ticketDetailData.memberPrice}}</view>
+          <view class='share-content' wx:if='{{userInfo.isSpreader == 1}}'>
+            分享他人购买可获得
+            <text style='color:#FF5100'>{{ticketDetailData.deductAmount}}元</text> 奖励
+          </view>
+        </view>
+        <!-- {{ticketDetailData.saleNum}} -->
+        <view class='count-box' wx:if='{{ticketDetailData.stockType===1}}'>
+          <view class='text'>
+            已经售出{{ticketDetailData.saleNumVisible}}份，还剩余{{ticketDetailData.stocks}}份
+          </view>
+          <view class='progress-bar'>
+            <view class='progress-bar-line' style='width:{{ticketDetailData.stockPercent}}%'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="head-bottom" wx:if='{{ticketDetailData.showCountDown ==1}}'>
+      <view class='count-down'>
+        距结束\t\t
+        <text>{{leftDay}}</text> \t天\t
+        <text>{{leftHours}}</text> \t:\t
+        <text>{{leftMinute}}</text> \t:\t
+        <text>{{leftSeconds}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="main">
+    <view class="main-top {{indexOfCurrentDevice ? 'btnWhiteAnim': ''}}" catchtap="onNavToShopDetail">
+      <image src='/images/icon/view-shop-icon.png' mode=''></image>
+      <text class="top-title">查看门店</text>
+      <text class="scan-detail"></text>
+      <view class="arrow"></view>
+    </view>
+    <view class="main-center">
+      <view>
+        <image src='/images/icon/shop-icon.png' mode=''></image>
+        <text class="shop-adress text-ellipsis">{{ticketDetailData.shopName}}</text>
+      </view>
+      <image class="icon-phone" src="/images/icon/dianhua.png" catchtap="onPhoneCall"></image>
+    </view>
+    <!-- <text class="shop-distance">{{ticketDetailData.distance}}km</text> -->
+    <view class="main-bottom {{indexOfCurrentAddress ? 'btnWhiteAnim': ''}}" catchtap="onOpenMap">
+      <image class="icon-adress" src="/images/icon/dizhi.png"></image>
+      <text class="bottom-title text-ellipsis">{{ticketDetailData.addr}}</text>
+    </view>
+  </view>
+  <view class="tips">
+    <view wx:if='{{ticketDetailData.guideArr.length == 0}}'>
+      <view class="tips-list" wx:if='{{ticketDetailData.isEquity===0}}'>
+        <text class="list-title">购买须知</text>
+        <text wx:for="{{ticketDetailData.bookNotice}}" wx:key="{{ticketDetailData.bookNotice}}" class="list-rule">
+        {{item}}
+      </text>
+      </view>
+      <view class="tips-list">
+        <text class="list-title">使用说明</text>
+        <text wx:for="{{ticketDetailData.useNotice}}" wx:key="{{ticketDetailData.useNotice}}" class="list-rule">
+        {{item}}
+      </text>
+      </view>
+      <view class="tips-list" wx:if='{{ticketDetailData.isEquity===0}}'>
+        <text class="list-title">退款规则</text>
+        <text wx:for="{{ticketDetailData.backNotice}}" wx:key="{{ticketDetailData.backNotice}}" class="list-rule">
+        {{item}}
+      </text>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="tips-list" wx:for='{{ticketDetailData.guideArr}}' wx:key='{{ticketDetailData.guideArr}}'>
+        <text class="list-title">{{item.title}}</text>
+        <text class="list-rule">{{item.content}}</text>
+      </view>
+    </view>
+    <view class="tips-list" style='marginLeft:0rpx'>
+      <text class="list-title">商品详情</text>
+      <view class='html-content'>
+        <Parser html='{{ticketDetailData.content}}' />
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class='index-box footer-item' bindtap='handleBack'>
+      <image wx:if="{{backIndex}}" src="/images/icon/index-icon-1.png" mode='widthFix'></image>
+      <image wx:else src="/images/icon/index-icon-2.png" mode='widthFix'></image>
+      <text>首页</text>
+    </view>
+    <view class='footer-share footer-item' bindtap='inviteDialogShow'>
+      <image wx:if="{{shareBool}}" src="/images/icon/share-icon-1.png" mode='widthFix'></image>
+      <image wx:else src="/images/icon/share-icon-2.png" mode='widthFix'></image>
+      <text>分享</text>
+    </view>
+    <view class='share-box footer-item'>
+      <image animation="{{animationUp}}" mode='widthFix' wx:if="{{isCollect}}" src="/images/icon/dianzan-1.png" catchtap="onCollectTicket"></image>
+      <image animation="{{animationUp}}" mode='widthFix' wx:else src="/images/icon/dianzan-2.png" catchtap="onCollectTicket"></image>
+      <text class='{{isCollect?"themeColor":""}}'>收藏</text>
+    </view>
+    <view class="purchase {{indexOfCurrentBtn ? 'btnGreenAnim': ''}}" data-reserve='{{ticketDetailData.isEquity===1}}' catchtap="onPurchase">
+      {{buyTxt}}
+    </view>
+  </view>
+</view>
+<view class="" hidden="{{!inviteDialogBool}}">
+  <BeforeShare playCardTitle='{{ticketDetailData.vipSpuName}}' bind:hideDialog='hidePoster' bind:continueShate='continueShate' bind:naviToPlayCard='naviToPlayCard' />
+</view>

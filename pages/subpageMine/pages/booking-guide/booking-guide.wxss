@@ -1,0 +1,6 @@
+/* pages/mine/booking-guide/booking-guide.wxss */
+
+image {
+  width: 100%;
+  height: 10562rpx;
+}

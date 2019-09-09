@@ -1,0 +1,50 @@
+/* pages/index/get-auth/get-auth.wxss */
+
+.auth-body {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+
+.auth-content {
+  text-align: center;
+  padding-top: 240rpx;
+}
+
+.auth-content image {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.auth-text {
+  text-align: center;
+  width: 100%;
+  font-size: 40rpx;
+  color: #ffab38;
+  margin-top: 20rpx;
+}
+
+.auth-body .get-user-btn {
+  width: 518rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background: linear-gradient(117deg, rgba(255, 209, 105, 1) 0%, rgba(255, 149, 23, 1) 100%);
+  border-radius: 49px;
+  color: #fff;
+}
+.bottom-box{
+  position: fixed;
+  bottom: 131rpx;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.close-miniprogram{
+  font-size: 32rpx;
+  color: #838383;
+  text-align: center;
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+.close-miniprogram::after {
+  border: none;
+}

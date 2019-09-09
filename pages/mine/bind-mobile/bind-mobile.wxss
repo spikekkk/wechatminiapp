@@ -1,0 +1,130 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item .img {
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 120rpx;
+  margin-bottom: 40rpx;
+}
+
+.item .title {
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 36rpx;
+  color: #333;
+  margin-bottom: 100rpx;
+}
+
+.item .phone {
+  width: 600rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.item .phone .icon-phone {
+  width: 28rpx;
+  height: 36rpx;
+  padding-left: 26rpx;
+  padding-right: 22rpx;
+  border-right: 1px solid #ddd;
+}
+
+.item .phone .ipt-phone {
+  width: 400rpx;
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #666;
+}
+.getPhoneNumber{
+  width: 158rpx;
+  height: 52rpx;
+  border-radius: 26rpx;
+  border: 1px solid #ff5100;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  color: #ff5100;
+  text-align: center;
+  margin: auto 20rpx auto auto;
+  padding: 0;
+  box-sizing: content-box;
+}
+.item .validate {
+  width: 600rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  margin-bottom: 80rpx;
+}
+
+.item .validate .icon-validate {
+  width: 28rpx;
+  height: 36rpx;
+  padding-left: 26rpx;
+  padding-right: 22rpx;
+  border-right: 1px solid #ddd;
+}
+
+.item .validate .ipt-validate {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #666;
+}
+
+.item .validate .btn-validate1 {
+  width: 158rpx;
+  height: 52rpx;
+  border-radius: 26rpx;
+  border: 1px solid #ff5100;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  color: #ff5100;
+  text-align: center;
+  margin: auto 20rpx auto auto;
+}
+
+.item .validate .btn-validate2 {
+  width: 158rpx;
+  height: 52rpx;
+  border-radius: 26rpx;
+  background: #ddd;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  color: #fff;
+  text-align: center;
+  margin: auto 20rpx auto auto;
+}
+
+.item .btn-submit {
+  width: 600rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  margin: 0 auto;
+  background: linear-gradient(322deg, rgba(255, 148, 54, 1) 0%, rgba(255, 188, 58, 1) 100%);
+  font-size: 32rpx;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 88rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.bcgd {
+  width: 100%;
+  height: 247rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}

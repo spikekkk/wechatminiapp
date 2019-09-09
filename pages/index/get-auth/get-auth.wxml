@@ -1,0 +1,11 @@
+<view class='auth-body'>
+  <view class='auth-content'>
+    <image src='/images/bg/logo2.png'></image>
+    <view class='auth-text'>惠吧会员卡</view>
+  </view>
+
+  <view class='bottom-box'>
+    <button class='get-user-btn' open-type="getUserInfo" bindgetuserinfo="onGetInfo">立即授权</button>
+    <navigator open-type="exit" target='miniProgram' class='close-miniprogram'>暂不授权</navigator>
+  </view>
+</view>
